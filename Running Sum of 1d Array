@@ -1,0 +1,11 @@
+//Pragnya's code
+var runningSum = function(nums) {
+    let sum = [nums[0]]; //since the first element is same for both the arrays
+    for(let i = 1;i<nums.length;i++){
+        sum[i] = sum[i-1] + nums[i]; //use the value in the previous index
+    }
+    return sum;
+}
+
+//time complexity = O(n)
+//space complexity = O(1) 
