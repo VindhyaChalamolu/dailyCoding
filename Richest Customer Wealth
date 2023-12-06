@@ -1,0 +1,30 @@
+//Pragnya's code
+//Brute Force
+var maximumWealth = function(accounts) {
+    let wealths = [];// to store the wealths of each customer
+    for(let i =0;i<accounts.length;i++){
+        wealths[i] = 0; //set all wealths to 0 
+    }
+    for(let i =0;i<accounts.length;i++){
+        for(let j =0;j<accounts[i].length;j++){
+            wealths[i] += accounts[i][j] // store the wealth of each customer in wealths array
+        }
+    }
+    return Math.max(...wealths); // return the maximum wealth
+};
+
+
+//Optimized solution
+//not using additional data structure to store the wealth of each customer
+var maximumWealth = function(accounts) {
+    let maxWealth = 0;
+    accounts.forEach((customer)=>{
+        let currentCustomerWealth = 0;
+        customer.forEach((bank)=>{
+            currentCustomerWealth += bank;
+        });
+        maxWealth = Math.max(maxWealth,currentCustomerWealth);
+    });
+    return maxWealth;
+
+};
